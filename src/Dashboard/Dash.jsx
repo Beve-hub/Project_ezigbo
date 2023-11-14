@@ -15,10 +15,10 @@ const Dash = () => {
       <h1 className='font-semibold text-2xl'>Hi, Welcome</h1>
 
 
-   <div className='flex items-center bg-[--btn-color] p-6 rounded-lg gap-6'>
+   <div className='flex items-center bg-[--btn-color] p-6 rounded-lg gap-10'>
     <div >
-     <div className='pb-4'>
-     <h1 className='font-semibold text-white text-lg'>Carry out check on the product</h1>
+     <div className='pb-4 '>
+     <h1 className='font-semibold text-white text-lg pb-5'>Carry out check on the product</h1>
      <p className='text-sm text-white'>Click on the barcode icon to verify the originality of your drug</p>
      </div>
      <button className='flex items-center gap-2 bg-[#FF9900] rounded-full px-2 py-1'  onClick={() => setShowModal(true)}>

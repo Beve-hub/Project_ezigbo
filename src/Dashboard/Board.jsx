@@ -10,12 +10,12 @@ const Board = () => {
       <Sidebar/>
       </div>
 
-    <div className='mr-[5rem] sm:flex justify-around items-center mx-[7rem]  overflow-hidden'>
+    <div className=' ml-[10rem] sm:flex justify-between items-center mx-auto  overflow-hidden'>
        <div>
           <Dash/>
         </div>
 
-       <div className='md:flex hidden'>
+       <div className=' sm:flex hidden'>
          <Right/>
        </div> 
     </div>
