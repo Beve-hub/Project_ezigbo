@@ -1,16 +1,25 @@
 import React from 'react'
 import Sidebar from './Sidebar'
 import Dash from './Dash'
+import Right from './Right'
 
 const Board = () => {
   return (
-    <div className='md: flex'>
+    <div className='md: flex overflow-hidden '>
      <div>
       <Sidebar/>
      </div>
 
-     <div>
-      <Dash/>
+     <div className='flex justify-around'>
+
+        <div>
+          <Dash/>
+        </div>
+
+       <div className=''>
+         <Right/>
+       </div>
+
      </div>
 
     </div>

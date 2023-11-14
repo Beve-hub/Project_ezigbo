@@ -1,13 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import IMG1 from '../Asset/6.png'
 import IMG2 from '../Asset/5.png'
+import WebcamScanner from './WebcamScanner'
 
 const Dash = () => {
-  return (
-    <div className='grid justify-center items-center w-[80rem] mt-8'>
-      <div>
+  const [showModal, setShowModal ] = useState(false);
 
-      <h1 className='pb-6 font-semibold text-2xl'>Hi, Welcome</h1>
+   const handleOnClose = () => {
+     setShowModal(false);
+       }
+  return (
+    <div className='grid justify-center items-center w-[75rem] mt-16'>
+      <div className='grid gap-8'>
+      <h1 className='font-semibold text-2xl'>Hi, Welcome</h1>
 
 
    <div className='flex items-center bg-[--btn-color] p-6 rounded-lg gap-6'>
@@ -16,32 +21,33 @@ const Dash = () => {
      <h1 className='font-semibold text-white text-lg'>Carry out check on the product</h1>
      <p className='text-sm text-white'>Click on the barcode icon to verify the originality of your drug</p>
      </div>
-     <button className='flex items-center gap-2 bg-[#FF9900] rounded-full px-2 py-1'>
+     <button className='flex items-center gap-2 bg-[#FF9900] rounded-full px-2 py-1'  onClick={() => setShowModal(true)}>
        <img src={IMG1} alt='' className='w-[2rem]'/>
        Scan Code
      </button>
        </div>
-       <img src={IMG2} alt='' className='w-[8rem] rounded-full ml-4'/>
+       <img src={IMG2} alt='' className='w-[8rem] rounded-full ml-4 md:flex hidden'/>
        </div>
 
     <div>
-  <h1>Activity history</h1>
+  <h1 className='font-semibold text-xl mt-3'>Activity history</h1>
 
-  <div>
-    <div className='flex items-center'>
+  <div className='py-8'>
+    <div className='flex items-center justify-between '>
       <div>
-        <h1>Nestle Milo</h1>
+        <h1 className='font-semibold '>Nestle Milo</h1>
         <p>nestle</p>
       </div>
       <div>
         <h1>13 Sept 23</h1>
-        <p>Original</p>
+        <p className='text-[green]'>Original</p>
       </div>
     </div>
   </div>
     </div>
 
       </div>
+      <WebcamScanner onClose={handleOnClose} isVisible={showModal} /> 
     </div>
   )
 }
