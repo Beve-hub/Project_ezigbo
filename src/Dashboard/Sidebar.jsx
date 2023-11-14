@@ -7,7 +7,7 @@ const Sidebar = () => {
   const [ open , setOpen ] =useState(false);
   const toggle = () => setOpen (!open);  
   return (
-    <div style={{width: open ? "200px" : "100px"}} className='w-[200px] h-screen bg-[#f2f2f2] p-8 fixed z-99 '>
+    <div style={{width: open ? "180px" : "100px"}} className='w-[200px] h-screen bg-[#f2f2f2] p-8 fixed z-99 '>
       <div className='flex items-center gap-3' >
         <img src={IMG} alt='' className='w-[3rem]' onClick={toggle}/>
         <h1 className='font-semibold text-lg' style={{display: open ? "block" : "none"}}>EZIGBO</h1>

@@ -5,22 +5,20 @@ import Right from './Right'
 
 const Board = () => {
   return (
-    <div className='md: flex overflow-hidden '>
-     <div>
+    <div >
+      <div>
       <Sidebar/>
-     </div>
+      </div>
 
-     <div className='flex justify-around'>
-
-        <div>
+    <div className='mr-[5rem] sm:flex justify-around items-center mx-[7rem]  overflow-hidden'>
+       <div>
           <Dash/>
         </div>
 
-       <div className=''>
+       <div className='md:flex hidden'>
          <Right/>
-       </div>
-
-     </div>
+       </div> 
+    </div>
 
     </div>
   )

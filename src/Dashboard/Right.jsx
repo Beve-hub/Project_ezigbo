@@ -26,7 +26,7 @@ const Right = () => {
       <div className='grid items-center justify-center gap-8 pt-[4rem]'>
         <div className='grid gap-2'>
             <h1 className='font-semibold text-xl'>Scan products.</h1>
-            <p>Place barcode inside the frame to scan. Please keep your device steady when scanning to ensure accurate results.</p>
+            <p className='w-[20rem]'>Place barcode inside the frame to scan. Please keep your device steady when scanning to ensure accurate results.</p>
         </div>
 
         <div className='bg-slate-200 p-4 grid items-center w-[13rem] h-[13rem] ml-8 justify-center rounded-xl'>

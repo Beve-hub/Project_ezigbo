@@ -10,7 +10,7 @@ const Dash = () => {
      setShowModal(false);
        }
   return (
-    <div className='grid justify-center items-center w-[75rem] mt-16'>
+    <div className='sm:grid justify-center items-center  mt-16'>
       <div className='grid gap-8'>
       <h1 className='font-semibold text-2xl'>Hi, Welcome</h1>
 
