@@ -10,8 +10,8 @@ const Board = () => {
       <Sidebar/>
       </div>
 
-    <div className=' ml-[10rem] sm:flex justify-between items-center mx-auto  overflow-hidden'>
-       <div>
+    <div className=' sm:flex justify-between items-center mx-auto  overflow-hidden'>
+       <div className='ml-[11rem]'>
           <Dash/>
         </div>
 

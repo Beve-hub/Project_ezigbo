@@ -18,7 +18,7 @@ const Right = () => {
   return (
     <div className=' grid items-center mt-8 pr-8 gap-4'>
       
-      <button onClick={() => navigate('/')} className='flex gap-3 items-center justify-end cursor-pointer ' >
+      <button onClick={() => navigate()} className='flex gap-3 items-center justify-end cursor-pointer ' >
            Logout
         <MdOutlineLogout size={20}/>
       </button>
