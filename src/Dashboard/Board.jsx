@@ -11,7 +11,7 @@ const Board = () => {
       </div>
 
     <div className=' sm:flex justify-around items-center mx-auto  overflow-hidden'>
-       <div className='mx-[8rem] border-l-black'>
+       <div className='ml-[6rem] mr-[2rem] mt-[7rem] border-l-black'>
           <Dash/>
         </div>
 
