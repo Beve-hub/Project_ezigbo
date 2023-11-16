@@ -1,6 +1,6 @@
 import{useState}from 'react'
 import IMG from '../Asset/Logo.png'
-import {link} from '../data'
+import {link, lins} from '../data'
 import { NavLink } from 'react-router-dom'
 import {AiFillCloseCircle, AiOutlineMenu} from 'react-icons/ai'
 
@@ -38,7 +38,7 @@ const Sidebar = () => {
   
         <ul className='gap-10  text-xl text-black grid items-center justify-center uppercase pt-24 '>
         {
-        link.map((item, index)=>(
+        lins.map((item, index)=>(
           <NavLink to={item.path} key={index} className='flex items-center gap-2'>
             <div className='grid justify-center'>{item.icon}</div>
             <div style={{display: open ? "block" : "none"}}>{item.name}</div>
