@@ -13,7 +13,7 @@ const Right = () => {
      setShowModal(false);
        }
 
-    const navigate = useNavigate();   
+    const navigate = useNavigate('/');   
    
   return (
     <div className=' grid items-center mt-8 pr-8 gap-4'>

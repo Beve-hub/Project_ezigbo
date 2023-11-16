@@ -4,6 +4,8 @@ import Board from "./Dashboard/Board";
 import Supplier from "./Dashboard/Supplier";
 import Company from "./Dashboard/Company";
 import Login from "./Dashboard/Login";
+import Register from "./Dashboard/Register";
+import Product from "./Dashboard/Product";
 
 
 const App = () => {
@@ -14,8 +16,10 @@ const App = () => {
       <Route path="/Board" element={<Board/>}/>
       <Route path="/Supplier" element={<Supplier/>} />
       <Route path="/Company" element={<Company/>}/>
+        <Route path="/Product" element={<Product/>}/>
       <Route path="/Login" element={<Login/>}/>
-      <Route path="/register"/>
+      <Route path="/Register" element={<Register/>}/>
+
     </Routes>
    </Router>
   )

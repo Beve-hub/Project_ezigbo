@@ -13,7 +13,7 @@ const Register = (props) => {
     e.preventDefault();
   };
   return (
-    <div className="grid justify-center text-center gap-6 mt-[10rem]">
+    <div className="grid justify-center text-center gap-6 mt-[10rem] ml-[6.5rem]">
       <h1 className="font-bold text-2xl">Let Us Know You!</h1>
       <form onSubmit={handleSubmit}>
         <div className="w-[20rem] grid gap-3">
@@ -38,18 +38,20 @@ const Register = (props) => {
             placeholder="Email"
             className="block w-full bg-slate-200 pl-4 border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           />
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setCAC(e.target.value)}
-            placeholder="CAC Number"
-            className="block w-full bg-slate-200 pl-4 border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-          />
-          <input
+
+           <input
             type="text"
             value={buAdd}
             onChange={(e) => setBuAdd(e.target.value)}
             placeholder="Business Address"
+            className="block w-full bg-slate-200 pl-4 border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+          <div className="flex items-center gap-2">
+          <input
+            type="text"
+            value={CAC}
+            onChange={(e) => setCAC(e.target.value)}
+            placeholder="CAC Number"
             className="block w-full bg-slate-200 pl-4 border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           />
           <input
@@ -59,6 +61,11 @@ const Register = (props) => {
             placeholder="Phone Number"
             className="block w-full bg-slate-200 pl-4 border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           />
+          </div>
+
+          
+         
+          
           <input
             type="password"
             value={pass}

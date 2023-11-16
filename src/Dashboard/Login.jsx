@@ -11,7 +11,7 @@ const Login = (props) => {
   }
 
   return (
-    <div className='grid justify-center text-center gap-6 mt-[10rem]'>
+    <div className='grid justify-center text-center gap-6 mt-[10rem] sm:ml-[6.5rem]'>
       <h1 className='font-bold text-2xl'>Welcome Back</h1>
       <form onSubmit={handleSubmit}>
         <div className='w-[20rem] grid gap-3'>
