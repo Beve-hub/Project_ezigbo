@@ -6,7 +6,7 @@ const Home = () => {
     <section id="home" className="min-h-screen bg-[#E6F3EA] flex py-10 md:flex-row grid-col-2 items-center justify-center">
       <div className='max-w-full mx-auto grid md:grid-cols-2 gap-12 px-20 justify-center items-center'>
 
-      <div className='md:w-[50rem]'>
+      <div className='md:w-[40rem]'>
         <h1 className='md:font-bold text-xl text-start mt-20 font-medium mb-4'>The decentralized power of the blockchain to combat and eradicate conterfeit product.</h1>
         <p className='md:pt-4 text-start text-md'>The rise in sale of counterfeit product in Africa has become an overwhelming problem. 
         In Nigeria alone, NAFDAC in 2002 found that nearly 41% of pharmaceuticals were counterfeit, 
