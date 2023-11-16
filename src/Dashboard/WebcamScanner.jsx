@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Webcam from "react-webcam";
 import { LuSwitchCamera } from 'react-icons/lu';
 
 const WebcamScanner = ({ isVisible, onClose }) => {
+  const webcamRef = useRef(null);
   const [facingMode, setFacingMode] = useState('user'); // Step 1: State variable for retry
 
   if (!isVisible) return null;
@@ -23,9 +24,6 @@ const WebcamScanner = ({ isVisible, onClose }) => {
     <div onClick={onClose} className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm  flex justify-center items-center">
       <div>
         <div className="bg-white p-8 rounded-md grid gap-6 ">
-            <p className='w-[20rem] text-sm text-[#828282]'>
-              Scanning failed. Please try again.
-            </p>
              <>
               <p className='w-[20rem] text-sm text-[#828282]'>Place barcode inside the frame to scan. Please keep your device steady when scanning to ensure accurate results.</p>
               <div className='ml-[3rem] w-[15rem] py-10 px-0  grid justify-center items-center bg-[#c1c1c1] rounded-lg '>
@@ -34,6 +32,7 @@ const WebcamScanner = ({ isVisible, onClose }) => {
                   height={200}
                   screenshotFormat="image/jpeg/png"
                   width={250}
+                   ref={webcamRef}
                   videoConstraints={videoConstraints}
                 >
                 </Webcam>
