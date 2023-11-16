@@ -42,7 +42,7 @@ export const lins = [
     {
         name: 'Logout',
         icon: <MdLogout size={24}/>,
-        path: '/Company'
+        path: '/LandingPage'
     }
 
 ]
