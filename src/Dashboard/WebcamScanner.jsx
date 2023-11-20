@@ -1,10 +1,12 @@
 import React, { useState, useRef } from 'react';
 import Webcam from "react-webcam";
+import QrReader from "react-qr-scanner"
 import { LuSwitchCamera } from 'react-icons/lu';
 
 const WebcamScanner = ({ isVisible, onClose }) => {
   const webcamRef = useRef(null);
   const [facingMode, setFacingMode] = useState('user'); // Step 1: State variable for retry
+  const [result, setResult] = useState('');
 
   if (!isVisible) return null;
 
@@ -18,6 +20,16 @@ const WebcamScanner = ({ isVisible, onClose }) => {
     setFacingMode((prevFacingMode) =>
       prevFacingMode === 'user' ? 'environment' : 'user'
     );
+  };
+
+  const handleScan = (data) => {
+    if (data) {
+      setResult(data);
+    }
+  };
+
+  const handleError = (err) => {
+    console.error(err);
   };
 
   return (
@@ -36,6 +48,14 @@ const WebcamScanner = ({ isVisible, onClose }) => {
                   videoConstraints={videoConstraints}
                 >
                 </Webcam>
+                <QrReader 
+                delay={300}
+                onError={handleError}
+                onScan={handleScan}
+                style={{ width: '100%', height: '100%' }}
+                />
+
+                <p>{result}</p>
               </div>
             </>
 
