@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import IMG1 from "../Asset/6.png";
 import IMG2 from "../Asset/5.png";
-import { addDrug } from "../utils/contractFunctions";
+import {} from "../utils/contractFunctions";
 import WebcamScanner from "./WebcamScanner";
 
 const Dash = () => {

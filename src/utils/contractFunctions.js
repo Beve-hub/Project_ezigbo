@@ -31,10 +31,10 @@ export const getDrugInfo = async (data) => {
 };
 
 // to get allDrugs
-export const getAllDrugs = async () => {
+export const getAllProducts = async () => {
   const contract = await getContract();
 
-  const transactionResponse = await contract.getAllDrugs();
+  const transactionResponse = await contract.getAllProducts();
 
   return transactionResponse;
 };
