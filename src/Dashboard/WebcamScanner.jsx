@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
-import Webcam from "react-webcam";
-import QrReader from "react-qr-scanner";
+// import Webcam from "react-webcam";
+// import QrReader from "react-qr-scanner";
 import Html5QrcodePlugin from "../Features/QrCodePLugin";
 import { LuSwitchCamera } from "react-icons/lu";
 
@@ -58,7 +58,6 @@ const WebcamScanner = ({ isVisible, onClose }) => {
               ></Webcam> */}
               <Html5QrcodePlugin
                 fps={10}
-                // height={200}
                 qrbox={250}
                 disableFlip={false}
                 qrCodeSuccessCallback={onNewScanResult}
