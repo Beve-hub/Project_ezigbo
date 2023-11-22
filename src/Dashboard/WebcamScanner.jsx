@@ -47,7 +47,14 @@ const WebcamScanner = ({ isVisible, onClose }) => {
               Place barcode inside the frame to scan. Please keep your device
               steady when scanning to ensure accurate results.
             </p>
+
             <div className="ml-[3rem] w-[15rem] py-10 px-0  grid justify-center items-center bg-[#c1c1c1] rounded-lg ">
+              <Html5QrcodePlugin
+                fps={10}
+                qrbox={250}
+                disableFlip={false}
+                qrCodeSuccessCallback={onNewScanResult}
+              />
               {/* <Webcam
                 audio={false}
                 height={200}
@@ -56,12 +63,6 @@ const WebcamScanner = ({ isVisible, onClose }) => {
                 ref={webcamRef}
                 videoConstraints={videoConstraints}
               ></Webcam> */}
-              <Html5QrcodePlugin
-                fps={10}
-                qrbox={250}
-                disableFlip={false}
-                qrCodeSuccessCallback={onNewScanResult}
-              />
 
               <p>{result}</p>
             </div>
