@@ -4,6 +4,17 @@
   font-size: 12pt;
 }
 
+button.html5-qrcode-element {
+  color: red;
+  border: 1px solid red;
+  margin-left: 10px;
+}
+div.html5-qrcode-element {
+  color: rgb(0, 255, 0);
+  border: 1px solid red;
+  margin-left: 10px;
+}
+
 @media (max-width: 640px) {
   #html5qr-code-full-region {
     width: 300px;
