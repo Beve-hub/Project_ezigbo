@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { addProduct } from "../utils/contractFunctions";
 import { toast } from "react-toastify";
+import QRCode from "qrcode.react";
 import Navbar from "../componet/Navbar";
 
 const getEthereumObject = () => window.ethereum;
@@ -52,8 +53,34 @@ const ProductDetails = () => {
   const [expNum, setExpNum] = useState();
   const [PoCont, setPoCont] = useState("");
   const [wallet, setWallet] = useState("");
+  const [showQR, setShowQR] = useState(false);
+  const qrCanvasRef = useRef(null);
   const { state } = useLocation();
   console.log(state);
+
+  const generateQRCode = () => {
+    setShowQR(true);
+  };
+
+  // const handleQRCodeRender = (canvas) => {
+  //   if (canvas !== null) {
+  //     qrCanvasRef.current = canvas;
+  //     setShowQR(true); // Set showQR to true when the QR code is rendered
+  //   }
+  // };
+
+  const downloadQRCode = () => {
+    const canvas = qrCanvasRef.current.querySelector("canvas");
+    const pngUrl = canvas
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream");
+    let downloadLink = document.createElement("a");
+    downloadLink.href = pngUrl;
+    downloadLink.download = "QRCode.png";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -80,13 +107,15 @@ const ProductDetails = () => {
         isLoading: false,
         autoClose: 3000, // Optional: Close the toast after 3 seconds
       });
+
+      generateQRCode();
     }
     // store the hash on the database
 
     // Clear the input field value after form submission
     document.getElementById("poName").value = "";
     document.getElementById("poType").value = "";
-    document.getElementById("snNum").value = "";
+    // document.getElementById("snNum").value = "";
     document.getElementById("bNum").value = "";
     document.getElementById("maDate").value = "";
     document.getElementById("expNum").value = "";
@@ -129,6 +158,7 @@ const ProductDetails = () => {
                 id="poName"
                 value={poName}
                 onChange={(e) => setPoName(e.target.value)}
+                required
                 placeholder="Enter Product Name"
                 className="mt-2 block w-full bg-slate-200 pl-4 border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -144,6 +174,7 @@ const ProductDetails = () => {
                 id="poType"
                 value={poType}
                 onChange={(e) => setPoType(e.target.value)}
+                required
                 placeholder="Enter product Type"
                 className="mt-2 block w-full bg-slate-200 pl-4 border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -159,6 +190,7 @@ const ProductDetails = () => {
                 id="snNum"
                 value={snNum}
                 onChange={(e) => setSnNum(e.target.value)}
+                required
                 placeholder="Enter Product Serial Number"
                 className="mt-2 block w-full bg-slate-200 pl-4 border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -174,6 +206,7 @@ const ProductDetails = () => {
                 id="bNum"
                 value={bNum}
                 onChange={(e) => setBNum(e.target.value)}
+                required
                 placeholder="Enter Product Batch Number"
                 className="mt-2 block w-full bg-slate-200 pl-4 border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -190,6 +223,7 @@ const ProductDetails = () => {
                   id="maDate"
                   value={maDate}
                   onChange={(e) => setMaDate(e.target.value)}
+                  required
                   placeholder="MM/YY"
                   className="mt-2 block w-[13rem] bg-slate-200 pl-4 border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -205,6 +239,7 @@ const ProductDetails = () => {
                   id="expNum"
                   value={expNum}
                   onChange={(e) => setExpNum(e.target.value)}
+                  required
                   placeholder="MM/YY"
                   className="mt-2 block w-[16rem] bg-slate-200 pl-4 border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -221,6 +256,7 @@ const ProductDetails = () => {
                 id="PoCont"
                 value={PoCont}
                 onChange={(e) => setPoCont(e.target.value)}
+                required
                 placeholder="Describe content"
                 className="mt-2 block w-full bg-slate-200 pl-4 border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -237,6 +273,17 @@ const ProductDetails = () => {
             </button>
           </div>
         </form>
+        {showQR && (
+          <div className="mt-4">
+            <QRCode value={snNum} ref={qrCanvasRef} id="qrCode" />
+            <button
+              onClick={downloadQRCode}
+              className="mt-2 bg-[#FF9900] w-half p-2 text-white font-semibold"
+            >
+              Download QR Code
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

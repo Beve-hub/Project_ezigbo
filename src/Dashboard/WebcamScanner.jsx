@@ -3,6 +3,8 @@ import React, { useState, useRef } from "react";
 // import QrReader from "react-qr-scanner";
 import Html5QrcodePlugin from "../Features/QrCodePLugin";
 import { LuSwitchCamera } from "react-icons/lu";
+import { toast } from "react-toastify";
+import { getProductInfo } from "../utils/contractFunctions";
 
 const WebcamScanner = ({ isVisible, onClose }) => {
   const webcamRef = useRef(null);
@@ -28,9 +30,37 @@ const WebcamScanner = ({ isVisible, onClose }) => {
       setResult(data);
     }
   };
-  const onNewScanResult = (decodedText, decodedResult) => {
+  const onNewScanResult = async (decodedText, decodedResult) => {
     setResult(decodedText);
-    window.alert(decodedText);
+    let SN = Number(decodedText);
+    let loading = toast.loading("loading");
+    const drugInfo = await getProductInfo(SN);
+    if (drugInfo) {
+      const options = { day: "numeric", month: "short", year: "numeric" };
+      let manDate = new Date(Number(drugInfo[5])).toLocaleDateString(
+        "en-US",
+        options
+      );
+      let expDate = new Date(Number(drugInfo[6])).toLocaleDateString(
+        "en-US",
+        options
+      );
+      toast.update(loading, {
+        render: `Product is original
+
+        Details:
+        Company Name: ${drugInfo[1]},
+        Product Name: ${drugInfo[0]},
+        Manufactured Date: ${manDate},
+        Expiration Date: ${expDate}`,
+        type: "success",
+        isLoading: false,
+        autoClose: 3000, // Optional: Close the toast after 3 seconds
+      });
+    }
+
+    console.log(drugInfo);
+    window.alert(drugInfo);
     console.log(decodedText, decodedResult);
   };
 

@@ -1,4 +1,5 @@
 import { getContract } from "./getContract";
+import { rpsContract } from "./rpcContract";
 // import { ethers } from "ethers";
 
 export const addProduct = async (data) => {
@@ -22,17 +23,17 @@ export const addProduct = async (data) => {
   return transactionResponse;
 };
 
-export const getDrugInfo = async (data) => {
-  const contract = await getContract();
+export const getProductInfo = async (data) => {
+  const contract = await rpsContract();
 
-  const transactionResponse = await contract.getDrugInfo(data);
+  const transactionResponse = await contract.getProductInfo(data);
 
   return transactionResponse;
 };
 
 // to get allDrugs
 export const getAllProducts = async () => {
-  const contract = await getContract();
+  const contract = await rpsContract();
 
   const transactionResponse = await contract.getAllProducts();
 
@@ -41,7 +42,7 @@ export const getAllProducts = async () => {
 
 // get drugs signed by an address
 export const getDrugsOwnedByAddress = async (data) => {
-  const contract = await getContract();
+  const contract = await rpsContract();
 
   const transactionResponse = await contract.getDrugsOwnedByAddress(data);
 
