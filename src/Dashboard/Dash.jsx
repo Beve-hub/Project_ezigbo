@@ -41,9 +41,49 @@ const Dash = () => {
         </div>
 
         <div>
-          <h1 className="font-semibold text-xl mt-3">Activity history</h1>
+          <h1 className="font-semibold text-xl mt-3">Network history</h1>
 
           <div className="py-8">
+            <div className="flex items-center justify-between ">
+              <div>
+                <h1 className="font-semibold ">Nestle Milo</h1>
+                <p>nestle</p>
+              </div>
+              <div>
+                <h1>13 Sept 23</h1>
+                <p className="text-[green]">Original</p>
+              </div>
+            </div>
+            <div className="flex items-center justify-between ">
+              <div>
+                <h1 className="font-semibold ">Nestle Milo</h1>
+                <p>nestle</p>
+              </div>
+              <div>
+                <h1>13 Sept 23</h1>
+                <p className="text-[green]">Original</p>
+              </div>
+            </div>
+            <div className="flex items-center justify-between ">
+              <div>
+                <h1 className="font-semibold ">Nestle Milo</h1>
+                <p>nestle</p>
+              </div>
+              <div>
+                <h1>13 Sept 23</h1>
+                <p className="text-[green]">Original</p>
+              </div>
+            </div>
+            <div className="flex items-center justify-between ">
+              <div>
+                <h1 className="font-semibold ">Nestle Milo</h1>
+                <p>nestle</p>
+              </div>
+              <div>
+                <h1>13 Sept 23</h1>
+                <p className="text-[green]">Original</p>
+              </div>
+            </div>
             <div className="flex items-center justify-between ">
               <div>
                 <h1 className="font-semibold ">Nestle Milo</h1>

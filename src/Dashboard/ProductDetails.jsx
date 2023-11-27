@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { addProduct } from "../utils/contractFunctions";
 import { toast } from "react-toastify";
 import Navbar from "../componet/Navbar";
 
 const getEthereumObject = () => window.ethereum;
+const convertToepochTime = (date) => {
+  // Get the date from the date picker or input
+  let selectedDate = new Date(date); // Replace this with your selected date from the date picker
+  // Convert the selected date to epoch time (in milliseconds)
+  let epochTime = selectedDate.getTime();
+  return epochTime;
+};
 
 const findMetaMaskAccount = async () => {
   try {
@@ -44,6 +52,8 @@ const ProductDetails = () => {
   const [expNum, setExpNum] = useState();
   const [PoCont, setPoCont] = useState("");
   const [wallet, setWallet] = useState("");
+  const { state } = useLocation();
+  console.log(state);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -51,13 +61,14 @@ const ProductDetails = () => {
     let data = {
       serialNumber: snNum,
       name: poName,
-      manufacturer: "Juhel",
+      manufacturer: manName,
       batchNumber: bNum,
-      manufacturedDate: maDate,
-      expirationDate: expNum,
+      manufacturedDate: convertToepochTime(maDate),
+      expirationDate: convertToepochTime(expNum),
       prodDetails: PoCont,
       productType: poType,
     };
+    console.log(data);
 
     let loading = toast.loading("loading");
     const response = await addProduct(data);
@@ -90,7 +101,14 @@ const ProductDetails = () => {
       }
     };
 
+    const checkManufacturer = async () => {
+      if (state) {
+        setManName(state);
+      }
+    };
+
     findAccount();
+    checkManufacturer();
   }, []);
 
   return (
@@ -167,7 +185,7 @@ const ProductDetails = () => {
                   Manufacturing Date
                 </label>
                 <input
-                  type="number"
+                  type="date"
                   name="maDate"
                   id="maDate"
                   value={maDate}
@@ -182,7 +200,7 @@ const ProductDetails = () => {
                   Expiry Date
                 </label>
                 <input
-                  type="number"
+                  type="date"
                   name="expNum"
                   id="expNum"
                   value={expNum}

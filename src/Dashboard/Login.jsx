@@ -35,7 +35,7 @@ const Login = (props) => {
       })
       .then((data) => {
         // Handle the response data
-        console.log("Response:", data);
+        console.log("Response:", data.user);
         if (data.status == 201) {
           toast.update(loading, {
             render: `${data.message}`,
@@ -44,7 +44,7 @@ const Login = (props) => {
             autoClose: 3000, // Optional: Close the toast after 3 seconds
           });
 
-          navigate("/Product");
+          navigate("/Product", { state: data.user.name });
         } else
           toast.update(loading, {
             render: `${data.message}`,
