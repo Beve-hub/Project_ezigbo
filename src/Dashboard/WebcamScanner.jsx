@@ -31,14 +31,9 @@ const WebcamScanner = ({ isVisible, onClose }) => {
     }
   };
 
-  const successScan = async (decodedText, decodedResult) => {
-    if (result) {
-      onNewScanResult(decodedText, decodedResult);
-    }
-    onClose();
-  };
   const onNewScanResult = async (decodedText, decodedResult) => {
     setResult(decodedText);
+    onClose();
     let SN = Number(decodedText);
     let loading = toast.loading("loading");
     const drugInfo = await getProductInfo(SN);
@@ -87,7 +82,7 @@ const WebcamScanner = ({ isVisible, onClose }) => {
                 fps={10}
                 qrbox={250}
                 disableFlip={false}
-                qrCodeSuccessCallback={successScan}
+                qrCodeSuccessCallback={onNewScanResult}
               />
               {/* <Webcam
                 audio={false}
