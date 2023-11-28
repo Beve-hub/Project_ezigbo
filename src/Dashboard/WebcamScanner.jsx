@@ -30,6 +30,13 @@ const WebcamScanner = ({ isVisible, onClose }) => {
       setResult(data);
     }
   };
+
+  const successScan = async (decodedText, decodedResult) => {
+    if (result) {
+      onNewScanResult(decodedText, decodedResult);
+    }
+    onClose();
+  };
   const onNewScanResult = async (decodedText, decodedResult) => {
     setResult(decodedText);
     let SN = Number(decodedText);
@@ -58,10 +65,7 @@ const WebcamScanner = ({ isVisible, onClose }) => {
         autoClose: 3000, // Optional: Close the toast after 3 seconds
       });
     }
-
-    console.log(drugInfo);
-    window.alert(drugInfo);
-    console.log(decodedText, decodedResult);
+    return;
   };
 
   const handleError = (err) => {
@@ -83,7 +87,7 @@ const WebcamScanner = ({ isVisible, onClose }) => {
                 fps={10}
                 qrbox={250}
                 disableFlip={false}
-                qrCodeSuccessCallback={onNewScanResult}
+                qrCodeSuccessCallback={successScan}
               />
               {/* <Webcam
                 audio={false}

@@ -41,10 +41,10 @@ export const getAllProducts = async () => {
 };
 
 // get drugs signed by an address
-export const getDrugsOwnedByAddress = async (data) => {
+export const getProductsOwnedByAddress = async (data) => {
   const contract = await rpsContract();
 
-  const transactionResponse = await contract.getDrugsOwnedByAddress(data);
+  const transactionResponse = await contract.getProductsOwnedByAddress(data);
 
   return transactionResponse;
 };
