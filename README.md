@@ -33,4 +33,4 @@ This is an original work by our team. We build on top of the following tooling:
 - Demo Link: [project-ezigbo.vercel.app](https://project-ezigbo.vercel.app/)
 - Video Demo1 (for companies/ pharmaceutical outlets) : [Demo Video 1 ](https://www.loom.com/share/128fbbb5d5cc4a8c80ef293f966d560c?sid=a93ba02a-325c-4fe7-8ddd-67565910299e)
 - Video Demo2 (for Users) : [Demo Video 2](https://www.loom.com/share/1bd8025a08db41c58b1cb05080a35591?sid=94ba4e1b-34c9-4d3b-b85e-a7bc7a06b603)
-- Tweet: [Link](#)
+- Tweet: [Twitter](https://twitter.com/future007_man/status/1729389014925328723?t=VXLs2yZIJYi9D-U75m1WtA&s=19)
